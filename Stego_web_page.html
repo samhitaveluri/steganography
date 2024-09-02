@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image LSB Steganography</title>
+    <style>
+        body, h1, h2, form, label, input, button {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Basic styling for body and headings */
+        body {
+            font-family: sans-serif;
+            background-image: url('https://t3.ftcdn.net/jpg/01/79/29/18/360_F_179291869_9JMeUh8vbcQW7GTiXt0bkZwSowwAHW4H.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            color: #333;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #1a1a1a; /* Dark gray text color */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6); /* Add shadow to improve readability */
+        }
+
+        h2 {
+            margin-top: 30px;
+            color: #1a1a1a; /* Dark gray text color */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+
+        /* Form styling */
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input[type="file"], input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>Image LSB Steganography</h1>
+    <h2>Embed a Message</h2>
+    <form action="/embed" method="post" enctype="multipart/form-data">
+        <label for="file">Select image (PNG):</label>
+        <input type="file" name="file" id="file" required>
+        <label for="message">Message:</label>
+        <input type="text" name="message" id="message" required>
+        <label for="password">Password (optional):</label>
+        <input type="text" name="password" id="password">
+        <button type="submit">Embed</button>
+    </form>
+
+    <h2>Extract a Message</h2>
+    <form action="/extract" method="post" enctype="multipart/form-data">
+        <label for="file">Select image (PNG):</label>
+        <input type="file" name="file" id="file" required>
+        <label for="password">Password:</label>
+        <input type="text" name="password" id="password" required>
+        <button type="submit">Extract</button>
+    </form>
+</body>
+</html>
